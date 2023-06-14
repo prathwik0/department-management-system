@@ -5,8 +5,6 @@
 </head>
 <body>
 
-<?php include("header.php");?>
-
 <a href="student.php"> student<br>
 <a href="department.php"> department<br>
 <a href="course.php"> course<br>
