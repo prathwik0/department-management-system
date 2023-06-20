@@ -8,8 +8,9 @@
             $faculty_name=$_POST['faculty_name'];
             $credits=$_POST['credits'];
             $hours=$_POST['hours'];
+            $sem=$_POST['sem'];
         
-            $sqlInsertIntoDB = "INSERT INTO `course`(`Course_Code`, `Course_Title`, `Faculty_name`, `Credits`, `Hours`) VALUES ('$course_code','$course_title','$faculty_name','$credits','$hours')";
+            $sqlInsertIntoDB = "INSERT INTO `course`(`Course_Code`, `Course_Title`, `Faculty_name`, `Credits`, `Hours`, `Semester`) VALUES ('$course_code','$course_title','$faculty_name','$credits','$hours','$sem')";
         
         if (mysqli_query($conn, $sqlInsertIntoDB)) {
             Print '<script>alert("Details uploaded successfully.");</script>';
@@ -31,10 +32,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Internship</title>
+<title>Course</title>
 </head>
 <body>
-<h3>Insert Internship Details:</h3>
+<h3>Insert Course Details:</h3>
 <form action="" method="post" enctype="multipart/form-data">
 Course Code:<br>
 <input type="text" name="course_code" maxlength="10">
@@ -50,6 +51,9 @@ Credits:<br>
 <br>
 Hours:<br>
 <input type="number" id="hours" name="hours" min="1">
+<br>
+Semester:<br>
+<input type="number" id="sem" name="sem" min="1" max="8">
 <br>
 <br />
 <input type="submit" name="submit" value="Upload">

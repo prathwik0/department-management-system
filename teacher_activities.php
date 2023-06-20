@@ -29,10 +29,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Internship</title>
+<title>Teacher Activities</title>
 </head>
 <body>
-<h3>Insert Internship Details:</h3>
+<h3>Insert Teacher Activities Details:</h3>
 <form action="" method="post" enctype="multipart/form-data">
 Employee_ID:<br>
 <input type="text" name="emp_id" maxlength="10">

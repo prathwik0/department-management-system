@@ -3,13 +3,12 @@
     include('dbCon.php');
     
     if (isset($_POST['submit'])) {
-        $usn=$_POST['usn'];
-        $course_code=$_POST['course_code'];
-        $see=$_POST['see'];
-        $cgpa=$_POST['cgpa'];
+        $ssid=$_POST['ssid'];
         $sem=$_POST['sem'];
+        $sec=$_POST['see'];
+        $year=$_POST['year'];
         
-        $sqlInsertIntoDB = "INSERT INTO `marks`(`USN`, `Course_Code`, `SEE`, `SGPA`, `Semester`) VALUES ('$usn','$course_code','$see','$cgpa','$sem')";
+        $sqlInsertIntoDB = "INSERT INTO `section`(`ssid`, `sem`, `section`, `year`) VALUES ('$ssid','$sem','$sec','$year')";
         if (mysqli_query($conn, $sqlInsertIntoDB)) {
             Print '<script>alert("Details uploaded successfully.");</script>';
             Print '<script>window.location.assign("index.php");</script>';
@@ -29,25 +28,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Marks</title>
+<title>Section</title>
 </head>
 <body>
-<h3>Insert Marks Details:</h3>
+<h3>Insert Section Details:</h3>
 <form action="" method="post" enctype="multipart/form-data">
-USN:<br>
-<input type="text" name="usn" maxlength="11">
-<br>
-Course Code:<br>
-<input type="text" name="course_code" maxlength="10">
-<br>
-SEE:<br>
-<input type="number" name="see" min="0" max="100">
-<br>
-CGPA:<br>
-<input type="number" name="cgpa" min="2" step="any">
+Semester-Section ID:<br>
+<input type="text" name="ssid" maxlength="10">
 <br>
 Semester:<br>
 <input type="number" name="sem" min="1" max="8">
+<br>
+Section:<br>
+<input type="text" name="sec" maxlength="1">
+<br>
+Academic Year:<br>
+<input type="number" name="year" min="2020">
 <br>
 <br />
 <input type="submit" name="submit" value="Upload">

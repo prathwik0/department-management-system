@@ -8,13 +8,14 @@
         } else {
             
             $usn=$_POST['usn'];
-            $type=$_POST['type'];
             $title=$_POST['title'];
             $company_name=$_POST['company_name'];
             $position=$_POST['position'];
             $advisor_name=$_POST['advisor_name'];
-            $duration=$_POST['duration'];
             $stipend=$_POST['stipend'];
+            $started=$_POST['started'];
+            $ended=$_POST['ended'];
+            
             
             $cert = explode('.', $_FILES['cert']['name']);
             $cert_ext = end($cert);
@@ -24,7 +25,7 @@
             move_uploaded_file($_FILES['report']['tmp_name'],"internship/reports/".$usn.".".$rep_ext);
             move_uploaded_file($_FILES['cert']['tmp_name'],"internship/certificates/".$usn.".".$cert_ext);
             
-            $sqlInsertIntoDB = "INSERT INTO `internships`(`USN`,`Type`,`Title`,`Company Name`,`Position`,`Advisor Name`,`Certificate`, `Report`,`Duration`,`Stipend`) VALUES ('$usn','$type','$title','$company_name','$position','$advisor_name','null','null','$duration','$stipend')";
+            $sqlInsertIntoDB = "INSERT INTO `internships`(`USN`, `Title`, `Company Name`, `Position`, `Advisor Name`, `Stipend`, `Started`, `Ended`) VALUES ('$usn','$title','$company_name','$position','$advisor_name','$stipend','$started','$ended')";
             if (mysqli_query($conn, $sqlInsertIntoDB)) {
                 Print '<script>alert("Details uploaded successfully.");</script>';
                 Print '<script>window.location.assign("index.php");</script>';
@@ -73,7 +74,13 @@ Duration:<br>
 <br>
 Stipend:<br>
 <input type="text" name="stipend">
-
+<br>
+Started:<br>
+<input type="date" name="started">
+<br>
+Ended:<br>
+<input type="date" name="ended">
+<br>
 <br>
 Report:<br>
 <input type="file" name="report">

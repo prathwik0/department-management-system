@@ -16,7 +16,7 @@
             
             move_uploaded_file($_FILES['cert']['tmp_name'],"mooc/certificates/".$usn.".".$cert_ext);
             
-            $sqlInsertIntoDB = "INSERT INTO `mooc_course`(`USN`, `subject`, `course_name`, `certificate`) VALUES ('$usn','$subject','$course_name',null)";
+            $sqlInsertIntoDB = "INSERT INTO `mooc_course`(`USN`, `subject`, `course_name`) VALUES ('$usn','$subject','$course_name')";
             if (mysqli_query($conn, $sqlInsertIntoDB)) {
                 Print '<script>alert("Details uploaded successfully.");</script>';
                 Print '<script>window.location.assign("index.php");</script>';
@@ -37,10 +37,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Internship</title>
+<title>MOOC</title>
 </head>
 <body>
-<h3>Insert Internship Details:</h3>
+<h3>Insert MOOC Course Details:</h3>
 <form action="" method="post" enctype="multipart/form-data">
 USN:<br>
 <input type="text" name="usn" maxlength="11">

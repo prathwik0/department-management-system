@@ -24,7 +24,7 @@
             move_uploaded_file($_FILES['code']['tmp_name'],"project/code/".$usn.".".$code_ext);
             
             
-            $sqlInsertIntoDB = "INSERT INTO `projects`(`Project_No`, `USN`, `Course_Code`, `Title`, `Certificate`, `Report`, `Code`) VALUES ('$proj_no','$usn','$course_code','$title','null','null','null')";
+            $sqlInsertIntoDB = "INSERT INTO `projects`(`Project_No`, `USN`, `Course_Code`, `Title`) VALUES ('$proj_no','$usn','$course_code','$title')";
             if (mysqli_query($conn, $sqlInsertIntoDB)) {
                 Print '<script>alert("Details uploaded successfully.");</script>';
                 Print '<script>window.location.assign("index.php");</script>';

@@ -10,8 +10,9 @@
         $qualifications=$_POST['qualifications'];
         $phone=$_POST['phone'];
         $email=$_POST['email'];
+        $address=$_POST['address'];
         
-        $sqlInsertIntoDB = "INSERT INTO `faculty`(`Department_ID`, `Employee_ID`, `First_Name`, `Last_Name`, `Qualifications`, `Phone`, `Email`) VALUES ('$dep_id','$emp_id','$fname','$lname','$qualifications','$phone','$email')";
+        $sqlInsertIntoDB = "INSERT INTO `faculty`(`Department_ID`, `Employee_ID`, `First_Name`, `Last_Name`, `Qualifications`, `Phone`, `Email`) VALUES ('$dep_id','$emp_id','$fname','$lname','$qualifications','$phone','$email','$address')";
         
         if (mysqli_query($conn, $sqlInsertIntoDB)) {
             Print '<script>alert("Details uploaded successfully.");</script>';
@@ -34,10 +35,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Internship</title>
+<title>Faculty</title>
 </head>
 <body>
-<h3>Insert Internship Details:</h3>
+<h3>Insert Faculty Details:</h3>
 <form action="" method="post" enctype="multipart/form-data">
 Department ID:<br>
 <input type="text" name="dep_id">
@@ -59,6 +60,9 @@ Phone Number:<br>
 <br>
 Email ID:<br>
 <input type="email" name="email">
+<br>
+Address:<br>
+<input type="text" name="address">
 <br>
 <br />
 <input type="submit" name="submit" value="Upload">
