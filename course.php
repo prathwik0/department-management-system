@@ -55,7 +55,6 @@ if (mysqli_close($conn)) {
         Semester:<br>
         <input type="number" id="sem" name="sem" min="1" max="8">
         <br>
-        <br />
         <input type="submit" name="submit" value="Upload">
 
     </form>
